@@ -29,8 +29,10 @@ $(LIBFT_A):
 
 clean:
 	$(RM) $(wildcard $(OBJ)/*.o)
+	$(MAKE) clean -C $(LIBFT)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(MAKE) fclean -C $(LIBFT)
 
 re: fclean all

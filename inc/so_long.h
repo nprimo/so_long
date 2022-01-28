@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/28 16:42:15 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/28 17:22:45 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,10 @@ typedef struct s_data {
 	int		ll;
 	int		end;
 }				t_data;
+
+typedef struct s_point {
+	int	x;
+	int	y;
+}	t_point;
 
 #endif

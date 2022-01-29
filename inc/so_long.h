@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/29 10:58:54 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/29 11:44:36 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,18 @@
 
 # include <mlx.h>
 
+typedef struct s_vars {
+	void	*mlx;
+	void	*win;
+}	t_vars;
+
 typedef struct s_data {
 	void	*img;
 	char	*adr;
 	int		bpp;
 	int		ll;
 	int		end;
-}				t_data;
+}	t_data;
 
 typedef struct s_point {
 	int	x;

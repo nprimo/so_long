@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit 
+MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit 
 
 NAME = so_long
 

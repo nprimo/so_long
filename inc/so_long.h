@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/29 11:44:36 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/01/29 11:54:47 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ typedef struct s_point {
 }	t_point;
 
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		close_app(int keycode, t_vars *vars);
 
 #endif

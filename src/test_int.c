@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:35:50 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/29 13:06:32 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/03 11:21:40 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #define W 1900
 #define H 1000
-#define U 50
 
 void	ft_make_crl(t_data img, t_point cent, int rad, int color);
 

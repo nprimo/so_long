@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/29 12:53:56 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/03 11:20:57 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 
 # include <mlx.h>
+# define U 50
 
 typedef struct s_point {
 	int	x;

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 11:35:50 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/03 11:21:40 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 16:15:01 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	ft_make_crl(t_data img, t_point cent, int rad, int color);
 
-t_data	put_circle(t_vars *vars, t_point cent)
+t_data	put_circle(t_v *vars, t_point cent)
 {
 	t_data	img;
 
@@ -33,7 +33,7 @@ int	shut_down(void)
 	exit(0);
 }
 
-int	show_keycode(int keycode, t_vars *vars)
+int	show_keycode(int keycode, t_v *vars)
 {
 	printf("%d\n", keycode);
 	if (keycode == 53)
@@ -41,7 +41,7 @@ int	show_keycode(int keycode, t_vars *vars)
 	return (0);
 }
 
-int	move_pos(int keycode, t_vars *vars)
+int	move_pos(int keycode, t_v *vars)
 {
 	t_data	img;
 
@@ -60,9 +60,10 @@ int	move_pos(int keycode, t_vars *vars)
 	return (0);
 }
 
+/*
 int	main(void)
 {
-	t_vars	vars;
+	t_v	vars;
 	t_data	img;
 
 	vars.mlx = mlx_init();
@@ -75,3 +76,4 @@ int	main(void)
 	mlx_hook(vars.win, 17, 0, shut_down, &vars);
 	mlx_loop(vars.mlx);
 }
+*/

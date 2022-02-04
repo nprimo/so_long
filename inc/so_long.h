@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 15:17:25 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 16:21:58 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,15 @@ typedef struct s_point {
 typedef struct s_vars {
 	void	*mlx;
 	void	*win;
-	t_point	pos;
+	char	**map;
+	int		*dim;
 }	t_vars;
+
+typedef struct s_v {
+	void	*mlx;
+	void	*win;
+	t_point	pos;
+}	t_v;
 
 typedef struct s_data {
 	void	*img;
@@ -44,9 +51,10 @@ void	*free_split(char **av);
 
 // MLX functions
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		close_app(int keycode, t_vars *vars);
+int		close_app(int keycode, t_v *vars);
 char	**get_map(int fd);
 int		*get_dim(char **map);
 int		check_map(char **map);
+char	**init_map(char *fname);
 
 #endif

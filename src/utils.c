@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:57:57 by nprimo            #+#    #+#             */
-/*   Updated: 2022/01/29 11:54:32 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 18:36:01 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *) dst = color;
 }
 
-int	close_app(int keycode, t_vars *vars)
+int	close_app(int keycode, t_v *vars)
 {
 	if (keycode == 53)
 	{

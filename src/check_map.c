@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:14:54 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 11:51:58 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 12:07:49 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,17 @@ int	is_closed(char **map)
 		col = 0;
 		while (col < dim[1])
 		{
-			if ((row == 0 || row == dim[0] - 1) && map[row][col] != '1')
+			if ((row == 0 || row == dim[0] - 1
+					|| col == 0 || col == dim[1] - 1) && map[row][col] != '1')
+			{
+				free(dim);
 				return (0);
-			if ((col == 0 || (col == dim[1] - 1)) && map[row][col] != '1')
-				return (0);
+			}
 			col++;
 		}
 		row++;
 	}
+	free(dim);
 	return (1);
 }
 

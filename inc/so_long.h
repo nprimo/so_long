@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 16:21:58 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 16:23:58 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	*free_split(char **av);
 // MLX functions
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		close_app(int keycode, t_v *vars);
-char	**get_map(int fd);
-int		*get_dim(char **map);
-int		check_map(char **map);
+
+// Parsing function 
 char	**init_map(char *fname);
+int		*get_dim(char **map);
 
 #endif

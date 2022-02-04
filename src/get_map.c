@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:52:34 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 12:32:51 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 12:49:37 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,6 @@ static char	*get_cont(int fd)
 		ret = read(fd, buff, BUFF_SIZE);
 	}
 	return (map);
-}
-
-static void	*free_split(char ***av)
-{
-	char	**head;
-
-	head = *av;
-	while (**av)
-	{
-		free(**av);
-		(*av)++;
-	}
-	free(head);
-	return (NULL);
 }
 
 char	**get_map(int fd)

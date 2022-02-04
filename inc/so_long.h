@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 11:51:45 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 12:50:37 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ typedef struct s_data {
 	int		end;
 }	t_data;
 
+void	*free_split(char ***av);
+
+// MLX functions
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		close_app(int keycode, t_vars *vars);
 char	**get_map(int fd);

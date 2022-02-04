@@ -6,18 +6,15 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:14:54 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 12:07:49 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 15:13:36 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-typedef struct s_checker
-{
-	int	clt;
-	int	ext;
-	int	str;
-}	t_checker;
+int		is_rect(char **map);
+int		is_closed(char **map, int row, int col);
+int		has_all_char(char **map, int pos);
 
 static int	is_valid_char(char c)
 {
@@ -27,76 +24,50 @@ static int	is_valid_char(char c)
 		return (0);
 }
 
-int	is_rect(char **map)
+static int	is_all_valid(char **map)
 {
-	size_t	len;
+	char	**head;
+	int		pos;
 
-	len = ft_strlen(*map);
-	map++;
-	while (*map)
+	head = map;
+	pos = 0;
+	while (*head)
 	{
-		if (len != ft_strlen(*map))
-			return (0);
-		map++;
+		while ((*head)[pos])
+		{
+			if (!is_valid_char((*head)[pos]))
+				return (0);
+			pos++;
+		}
+		head++;
 	}
 	return (1);
 }
 
-int	is_closed(char **map)
+int	check_map(char **map)
 {
-	int	*dim;
-	int	row;
-	int	col;
-
-	dim = get_dim(map);
-	if (!dim)
-		return (0);
-	row = 0;
-	while (row < dim[0])
+	if (!is_rect(map))
 	{
-		col = 0;
-		while (col < dim[1])
-		{
-			if ((row == 0 || row == dim[0] - 1
-					|| col == 0 || col == dim[1] - 1) && map[row][col] != '1')
-			{
-				free(dim);
-				return (0);
-			}
-			col++;
-		}
-		row++;
-	}
-	free(dim);
-	return (1);
-}
-
-int	is_valid_map(char **map)
-{
-	t_checker	check;
-
-	check.clt = 0;
-	check.ext = 0;
-	check.str = 0;
-	while (*map)
-	{
-		while (**map)
-		{
-			if (!is_valid_char(**map))
-				return (0);
-			if (**map == 'C')
-				check.clt++;
-			else if (**map == 'E')
-				check.ext++;
-			else if (**map == 'P')
-				check.str++;
-			(*map)++;
-		}
-		map++;
-	}
-	if (check.clt == 0 || check.ext == 0 || check.str != 1)
+		ft_putstr_fd("Not rect\n", 1);
 		return (0);
-	return (1);
+	}
+	else if (!is_closed(map, 0, 0))
+	{
+		ft_putstr_fd("Not closed\n", 1);
+		return (0);
+	}
+	else if (!is_all_valid(map))
+	{
+		ft_putstr_fd("Wrong char inside map\n", 1);
+		return (0);
+	}
+	else if (!has_all_char(map, 0))
+	{
+		ft_putstr_fd("Missing some special char in map\n", 1);
+		return (0);
+	}
+	else
+		return (1);
 }
 
 /*

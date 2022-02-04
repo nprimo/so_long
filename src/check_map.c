@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:14:54 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 11:48:14 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 11:51:58 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,6 @@ static int	is_valid_char(char c)
 		return (1);
 	else
 		return (0);
-}
-
-static int	*get_dim(char **map)
-{
-	int	n_rows;
-	int	*dim;
-
-	dim = malloc(sizeof(*dim) * 2);
-	if (!dim)
-		return (0);
-	n_rows = 0;
-	dim[1] = ft_strlen(*map);
-	while (*map)
-	{
-		n_rows++;
-		map++;
-	}
-	dim[0] = n_rows++;
-	return (dim);
 }
 
 int	is_rect(char **map)

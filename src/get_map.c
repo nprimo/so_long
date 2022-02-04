@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 11:45:44 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/03 18:12:38 by nprimo           ###   ########.fr       */
+/*   Created: 2022/02/04 11:52:34 by nprimo            #+#    #+#             */
+/*   Updated: 2022/02/04 11:52:49 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,25 @@ char	**get_map(int fd)
 	if (!map)
 		return (free_split(&map));
 	return (map);
+}
+
+int	*get_dim(char **map)
+{
+	int	n_rows;
+	int	*dim;
+
+	dim = malloc(sizeof(*dim) * 2);
+	if (!dim)
+		return (0);
+	n_rows = 0;
+	dim[1] = ft_strlen(*map);
+	while (*map)
+	{
+		n_rows++;
+		map++;
+	}
+	dim[0] = n_rows++;
+	return (dim);
 }
 
 /*

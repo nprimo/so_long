@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:52:34 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 12:49:37 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/04 18:17:01 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	**get_map(int fd)
 		return (NULL);
 	map = ft_split(cont, '\n');
 	if (!map)
-		return (free_split(&map));
+		return (free_split(map));
 	free(cont);
 	return (map);
 }

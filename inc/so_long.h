@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/07 12:31:17 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/07 17:47:14 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,29 @@
 # define U 32 
 # define BUFF_SIZE 4096 
 
+# define REL_PATH_WLL "img/Bush-4.xpm"
+# define REL_PATH_PNG "img/Beer.xpm"
+# define REL_PATH_CLT "img/Apple.xpm"
+# define REL_PATH_EXT "img/Chest.xpm"
+
 typedef struct s_point {
 	int	x;
 	int	y;
 }	t_point;
+
+typedef struct s_tiles {
+	void	*img_1;
+	void	*img_p;
+	void	*img_c;
+	void	*img_e;
+}	t_tiles;
 
 typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 	char	**map;
 	int		*dim;
+	t_tiles	tiles;
 }	t_vars;
 
 typedef struct s_v {
@@ -56,5 +69,6 @@ int		close_app(int keycode, t_v *vars);
 // Parsing function 
 char	**init_map(char *fname);
 int		*get_dim(char **map);
+void	init_tiles(t_vars *v);
 
 #endif

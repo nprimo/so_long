@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:14:59 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/04 16:23:58 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/07 12:31:17 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <mlx.h>
 # include <fcntl.h>
 
-# define U 50
+# define U 32 
 # define BUFF_SIZE 4096 
 
 typedef struct s_point {

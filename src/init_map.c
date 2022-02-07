@@ -6,11 +6,13 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:18:01 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/07 17:40:32 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/07 17:45:42 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	check_map(char **map);
 
 static char	*get_cont(int fd)
 {

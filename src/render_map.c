@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:10:25 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/07 11:14:07 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/07 11:39:29 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 #define W v->dim[1] * U
 #define H v->dim[0] * U
 
-void	ft_put_sqr(t_data *img, t_point p, int len, int clr)
+void	ft_put_cross(t_data *img, t_point p, int clr)
 {
 	int	count;
 
 	count = 0;
-	while (count < len)
+	while (count < U)
 	{
 		ft_mlx_pixel_put(img, p.y * U + count, p.x * U + count, clr);
+		ft_mlx_pixel_put(img, (p.y + 1) * U - count, p.x * U + count, clr);
 		count++;
 	}
 }
@@ -49,7 +50,7 @@ void	put_map(t_data *img, t_vars v)
 				clr = 0x000000ff;
 			else
 				clr = 0x00000000;
-			ft_put_sqr(img, p, U, clr);
+			ft_put_cross(img, p, clr);
 			p.y++;
 		}
 		p.x++;

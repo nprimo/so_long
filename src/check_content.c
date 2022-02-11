@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:18:52 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 10:48:47 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 11:27:02 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,28 @@ static int	is_all_valid(char *content, char *valid_set)
 	return (1);
 }
 
+static int	has_all_char(char *content)
+{
+	t_count_char	check;
+
+	check.player = 0;
+	check.collectible = 0;
+	check.exit = 0;
+	while (*content)
+	{
+		if (*content == PLAYER)
+			check.player++;
+		if (*content == COLLECTIBLE)
+			check.collectible++;
+		if (*content == EXIT)
+			check.exit++;
+		content++;
+	}
+	if (check.player == 1 && check.exit > 0 && check.collectible > 0)
+		return (1);
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	int		fd;
@@ -49,6 +71,7 @@ int	main(int ac, char **av)
 		content = get_content(fd);
 		if (!content)
 			return (0);
+		ft_putnbr_fd(has_all_char(content), 1);
 		ft_putnbr_fd(is_all_valid(content, VALID_CHAR_SET), 1);
 		ft_putchar_fd('\n', 1);
 		return (1);

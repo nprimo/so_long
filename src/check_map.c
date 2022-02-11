@@ -6,11 +6,13 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:44:42 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 13:46:24 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 18:22:37 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	*get_dim(char **map);
 
 static int	is_closed(char **map, int row, int col)
 {

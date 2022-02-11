@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 11:28:53 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 13:42:40 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ enum e_char
 	EXIT = 'E',
 };
 
+typedef struct s_count_char {
+	int	player;
+	int	collectible;
+	int	exit;
+}	t_count_char;	
+
 typedef enum e_tile_type {
 	T_WALL = 0,
 	T_COLLECTIBLE,
@@ -63,10 +69,7 @@ typedef struct s_data {
 	int		end;
 }	t_data;
 
-typedef struct s_count_char {
-	int	player;
-	int	collectible;
-	int	exit;
-}	t_count_char;	
+int		check_content(char *content);
+void	*free_split(char **av);
 
 #endif

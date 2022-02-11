@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_content.c                                    :+:      :+:    :+:   */
+/*   check_content_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 10:18:52 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 12:18:17 by nprimo           ###   ########.fr       */
+/*   Created: 2022/02/11 12:32:53 by nprimo            #+#    #+#             */
+/*   Updated: 2022/02/11 12:33:01 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,25 @@ static int	is_continuos(char *content)
 	return (1);
 }
 
+static int	is_rect(char *content)
+{
+	size_t	tot_len;
+	size_t	row_len;
+
+	tot_len = ft_strlen(content);
+	row_len = tot_len - ft_strlen(ft_strchr(content, '\n'));
+	while (ft_strchr(content, '\n'))
+	{
+		tot_len = ft_strlen(content);
+		if (tot_len - ft_strlen(ft_strchr(content, '\n')) != row_len)
+			return (0);
+		content += row_len;
+		while (*content == '\n')
+			content++;
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	int		fd;
@@ -89,9 +108,11 @@ int	main(int ac, char **av)
 		content = get_content(fd);
 		if (!content)
 			return (0);
+		ft_putstr_fd(content, 1);
 		ft_putnbr_fd(has_all_char(content), 1);
 		ft_putnbr_fd(is_all_valid(content, VALID_CHAR_SET), 1);
 		ft_putnbr_fd(is_continuos(content), 1);
+		ft_putnbr_fd(is_rect(content), 1);
 		ft_putchar_fd('\n', 1);
 		return (1);
 	}

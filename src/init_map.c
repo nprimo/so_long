@@ -6,11 +6,16 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 17:36:21 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 18:07:35 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int		*get_dim(char **map);
+int		check_map(char **map);
+char	*get_content(int fd);
+int		check_content(char *content);
 
 char	**get_map(int fd)
 {
@@ -58,8 +63,6 @@ t_tile_type	*translate_row(char	*map_char_row)
 	while (col < row_len)
 	{
 		map_row[col] = char_to_tile_type(map_char_row[col]);
-		if (!map_row[row])
-			return (NULL);
 		col++;
 	}
 	return (map_row);
@@ -69,7 +72,6 @@ t_tile_type	**map_char_to_tile_type(char **map_char, int *dim)
 {
 	t_tile_type	**map;
 	int			row;
-	int			col;
 
 	map = malloc(sizeof(*map) * (dim[0]));
 	if (!map)
@@ -85,19 +87,22 @@ t_tile_type	**map_char_to_tile_type(char **map_char, int *dim)
 	return (map);
 }
 
-t_tile_type	**init_map(char	*fname)
+t_tile_type	**init_map(char	*fname, int **dim)
 {
 	int			fd;
 	char		**map_char;
 	t_tile_type	**map;
 
-	fd = open(fname);
+	fd = open(fname, O_RDONLY);
 	if (fd < 0 || fd > 10)
 		return (NULL);
 	map_char = get_map(fd);
 	if (!map_char)
 		return (NULL);
-	map = translate_map(map_char, get_dim(map_char));
+	*dim = get_dim(map_char);
+	if (!(*dim))
+		return (NULL);
+	map = map_char_to_tile_type(map_char, *dim);
 	if (!map)
 		return (NULL);
 	return (map);

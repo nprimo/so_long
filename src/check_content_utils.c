@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 12:32:53 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 12:37:16 by nprimo           ###   ########.fr       */
+/*   Created: 2022/02/11 13:16:30 by nprimo            #+#    #+#             */
+/*   Updated: 2022/02/11 13:16:35 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,40 @@ int	is_rect(char *content)
 	}
 	return (1);
 }
+
+/*
+char	*get_content(int fd);
+
+int	main(int ac, char **av)
+{
+	int		fd;
+	char	*content;
+	char	*tmp;
+
+	if (ac == 2)
+	{
+		fd = open(av[1], O_RDONLY);
+		if (fd < 0 || fd > 1024)
+			return (0);
+		content = get_content(fd);
+		if (!content)
+			return (0);
+		tmp = content;
+		content = ft_strtrim(content, "\n");
+		free(tmp);
+		ft_putstr_fd(content, 1);
+		ft_putstr_fd("\n\n", 1);
+		ft_putnbr_fd(has_all_char(content), 1);
+		ft_putnbr_fd(is_all_valid(content, VALID_CHAR_SET), 1);
+		ft_putnbr_fd(is_continuos(content), 1);
+		ft_putnbr_fd(is_rect(content), 1);
+		ft_putchar_fd('\n', 1);
+		return (1);
+	}
+	else
+	{
+		ft_putstr_fd("Insert only 1 argument!\n", 1);
+		return (0);
+	}
+}
+*/

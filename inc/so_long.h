@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
+/*   Updated: 2022/02/11 10:07:14 by nprimo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+# include "../libft/libft.h"
+
+# include <mlx.h>
+# include <fcntl.h>
+
+# define U 32 
+# define BUFF_SIZE 4096 
+
+# define REL_PATH_WALL "img/Bush-4.xpm"
+# define REL_PATH_PLAYER "img/Beer.xpm"
+# define REL_PATH_COLLECTIBLE "img/Apple.xpm"
+# define REL_PATH_EXIT "img/Chest.xpm"
+
+typedef enum e_tile_type {
+	WALL = 0,
+	PLAYER,
+	COLLECTIBLE,
+	EXIT,
+} t_tile_type;
+
+typedef struct s_tiles {
+	void	*img[4];
+}	t_tiles;
+
+typedef struct s_vars {
+	void		*mlx;
+	void		*win;
+	t_tile_type	**map;
+	int			*dim;
+	t_tiles		tiles;
+}	t_vars;
+
+typedef struct s_data {
+	void	*img;
+	char	*adr;
+	int		bpp;
+	int		ll;
+	int		end;
+}	t_data;
+
+#endif

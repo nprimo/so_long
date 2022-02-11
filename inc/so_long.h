@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 10:07:14 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 10:39:41 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,19 @@
 # define U 32 
 # define BUFF_SIZE 4096 
 
+# define VALID_CHAR_SET	"01CPE"
+
 # define REL_PATH_WALL "img/Bush-4.xpm"
-# define REL_PATH_PLAYER "img/Beer.xpm"
 # define REL_PATH_COLLECTIBLE "img/Apple.xpm"
+# define REL_PATH_PLAYER "img/Beer.xpm"
 # define REL_PATH_EXIT "img/Chest.xpm"
 
 typedef enum e_tile_type {
 	WALL = 0,
-	PLAYER,
 	COLLECTIBLE,
+	PLAYER,
 	EXIT,
-} t_tile_type;
+}	t_tile_type;
 
 typedef struct s_tiles {
 	void	*img[4];
@@ -52,5 +54,11 @@ typedef struct s_data {
 	int		ll;
 	int		end;
 }	t_data;
+
+typedef struct s_count_char {
+	int	player;
+	int	collectible;
+	int	exit;
+}	t_count_char;	
 
 #endif

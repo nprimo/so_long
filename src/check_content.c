@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:18:52 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 11:27:02 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 12:18:17 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,24 @@ static int	has_all_char(char *content)
 	return (0);
 }
 
+static int	is_continuos(char *content)
+{
+	int	flag;
+
+	while (*content)
+	{
+		flag = 0;
+		while (content[flag] && content[flag] == '\n')
+			flag++;
+		if (flag > 1 && !content[flag])
+			return (1);
+		else if (flag > 1 && content[flag])
+			return (0);
+		content++;
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	int		fd;
@@ -73,6 +91,7 @@ int	main(int ac, char **av)
 			return (0);
 		ft_putnbr_fd(has_all_char(content), 1);
 		ft_putnbr_fd(is_all_valid(content, VALID_CHAR_SET), 1);
+		ft_putnbr_fd(is_continuos(content), 1);
 		ft_putchar_fd('\n', 1);
 		return (1);
 	}

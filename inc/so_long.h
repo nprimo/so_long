@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 17:36:52 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 18:07:37 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,7 @@ typedef struct s_data {
 	int		end;
 }	t_data;
 
-char	*get_content(int fd);
-int		check_content(char *content);
-void	*free_split(char **av);
-int		check_map(char **map);
-int		*get_dim(char **map);
+void		*free_split(char **av);
+int			init_session(char *fname, t_vars *v);
 
 #endif

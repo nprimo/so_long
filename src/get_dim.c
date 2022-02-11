@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map.c                                         :+:      :+:    :+:   */
+/*   get_dim.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 16:12:50 by nprimo           ###   ########.fr       */
+/*   Created: 2022/02/11 16:09:02 by nprimo            #+#    #+#             */
+/*   Updated: 2022/02/11 16:09:19 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**init_map(int fd)
+int	*get_dim(char **map)
 {
-	char		*content;
-	char		**map;
+	int	n_rows;
+	int	*dim;
 
-	content = get_content(fd);
-	if (!content)
-		return (0);
-	if (!check_content(content))
-		return (0);
-	map = ft_split(content, '\n');
-	if (!map || !check_map(map))
-	{
-		free_split(map);
+	dim = malloc(sizeof(*dim) * 2);
+	if (!dim)
 		return (NULL);
+	n_rows = 0;
+	dim[1] = ft_strlen(*map);
+	while (*map)
+	{
+		n_rows++;
+		map++;
 	}
-	return (map);
+	dim[0] = n_rows++;
+	return (dim);
 }

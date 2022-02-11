@@ -1,7 +1,7 @@
 MAKEFLAGS += --quiet
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit 
 
 NAME = so_long

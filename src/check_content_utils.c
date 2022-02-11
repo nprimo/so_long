@@ -6,15 +6,13 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:32:53 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 12:33:01 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 12:37:16 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*get_content(int fd);
-
-static int	is_valid_char(char c, char *valid_set)
+int	is_valid_char(char c, char *valid_set)
 {
 	while (*valid_set)
 	{
@@ -25,7 +23,7 @@ static int	is_valid_char(char c, char *valid_set)
 	return (0);
 }
 
-static int	is_all_valid(char *content, char *valid_set)
+int	is_all_valid(char *content, char *valid_set)
 {
 	while (*content)
 	{
@@ -36,7 +34,7 @@ static int	is_all_valid(char *content, char *valid_set)
 	return (1);
 }
 
-static int	has_all_char(char *content)
+int	has_all_char(char *content)
 {
 	t_count_char	check;
 
@@ -58,7 +56,7 @@ static int	has_all_char(char *content)
 	return (0);
 }
 
-static int	is_continuos(char *content)
+int	is_continuos(char *content)
 {
 	int	flag;
 
@@ -76,7 +74,7 @@ static int	is_continuos(char *content)
 	return (1);
 }
 
-static int	is_rect(char *content)
+int	is_rect(char *content)
 {
 	size_t	tot_len;
 	size_t	row_len;
@@ -93,32 +91,4 @@ static int	is_rect(char *content)
 			content++;
 	}
 	return (1);
-}
-
-int	main(int ac, char **av)
-{
-	int		fd;
-	char	*content;
-
-	if (ac == 2)
-	{
-		fd = open(av[1], O_RDONLY);
-		if (fd < 0 || fd > 1024)
-			return (0);
-		content = get_content(fd);
-		if (!content)
-			return (0);
-		ft_putstr_fd(content, 1);
-		ft_putnbr_fd(has_all_char(content), 1);
-		ft_putnbr_fd(is_all_valid(content, VALID_CHAR_SET), 1);
-		ft_putnbr_fd(is_continuos(content), 1);
-		ft_putnbr_fd(is_rect(content), 1);
-		ft_putchar_fd('\n', 1);
-		return (1);
-	}
-	else
-	{
-		ft_putstr_fd("Insert only 1 argument!\n", 1);
-		return (0);
-	}
 }

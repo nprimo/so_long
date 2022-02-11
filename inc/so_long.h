@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 10:39:41 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/11 11:28:53 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,20 @@
 # define REL_PATH_PLAYER "img/Beer.xpm"
 # define REL_PATH_EXIT "img/Chest.xpm"
 
+enum e_char
+{
+	WALL = '1',
+	COLLECTIBLE = 'C',
+	PLAYER = 'P',
+	EXIT = 'E',
+};
+
 typedef enum e_tile_type {
-	WALL = 0,
-	COLLECTIBLE,
-	PLAYER,
-	EXIT,
-}	t_tile_type;
+	T_WALL = 0,
+	T_COLLECTIBLE,
+	T_PLAYER,
+	T_EXIT,
+}t_tile_type;
 
 typedef struct s_tiles {
 	void	*img[4];

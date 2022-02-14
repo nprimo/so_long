@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/14 11:13:38 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/14 12:58:03 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,10 @@ t_tile_type	**init_map(char	*fname, int **dim)
 		return (NULL);
 	*dim = get_dim(map_char);
 	if (!(*dim))
-		return (NULL);
+		return (free_split((void **) map_char));
 	map = map_char_to_tile_type(map_char, *dim);
 	if (!map)
-		return (NULL);
+		return (free_split((void **) map_char));
+	free_split((void **) map_char);
 	return (map);
 }

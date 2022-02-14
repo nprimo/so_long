@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:06:12 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/14 12:46:04 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/14 14:13:42 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_vars(t_vars *v)
 	int	count;
 
 	free(v->dim);
-	free_split((void **) v->map);
+	// free_split((void **) v->map);
 	count = 1;
 	while (count < 5)
 	{

@@ -12,8 +12,8 @@ INC = inc
 SRCS = $(wildcard $(SRC)/*c)
 OBJS = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 
-LIBFT = libft
-LIBFT_A = libft/libft.a
+LIBFT = ft_printf 
+LIBFT_A = ft_printf/libftprintf.a
 
 $(OBJ)/%.o: $(SRC)/%.c
 	@ mkdir -p $(OBJ)

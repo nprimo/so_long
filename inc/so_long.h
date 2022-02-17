@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 18:33:01 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 19:22:51 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <mlx.h>
 # include <fcntl.h>
 
-# define U 16 
+# define U 32 
 # define BUFF_SIZE 4096 
 
 # define DESTROY_EVENT 17
@@ -31,6 +31,7 @@
 # define REL_PATH_COLLECTIBLE "img/Apple.xpm"
 # define REL_PATH_PLAYER "img/Beer.xpm"
 # define REL_PATH_EXIT "img/Chest.xpm"
+# define REL_PATH_BACKGROUND "img/grass.xpm"
 
 enum e_char
 {
@@ -51,11 +52,12 @@ typedef enum e_tile_type {
 	T_COLLECTIBLE,
 	T_PLAYER,
 	T_EXIT,
+	T_BACKGROUND,
 	END_ROW
 }t_tile_type;
 
 typedef struct s_tiles {
-	void	*img[4];
+	void	*img[5];
 }	t_tiles;
 
 typedef struct s_player {
@@ -84,5 +86,6 @@ int			check_map(char **map);
 char		*get_content(int fd);
 int			check_content(char *content);
 void		*free_split(void **av);
+void		render_map(t_game game);
 
 #endif

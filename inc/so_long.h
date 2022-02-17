@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 12:44:55 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 13:02:53 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef enum e_tile_type {
 	T_COLLECTIBLE,
 	T_PLAYER,
 	T_EXIT,
+	END_ROW
 }t_tile_type;
 
 typedef struct s_tiles {
@@ -73,6 +74,7 @@ void		pre_setup(t_game *game);
 int			free_and_exit(t_game *game);
 int			get_win_row(char **map);
 int			get_win_col(char **map);
+void		get_win_dim(t_game *game);
 t_tile_type	**init_map(char	*fname);
 int			init_session(char *fname, t_game *game);
 int			check_map(char **map);

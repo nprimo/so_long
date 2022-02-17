@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:26:36 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 13:26:44 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 16:15:52 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,9 @@ char	*get_content(int fd)
 		buff[ret] = 0;
 		tmp = content;
 		content = ft_strjoin(content, buff);
-		if (!content)
-		{
-			free(tmp);
-			return (NULL);
-		}
 		free(tmp);
+		if (!content)
+			return (NULL);
 		ret = read(fd, buff, BUFF_SIZE);
 	}
 	return (content);

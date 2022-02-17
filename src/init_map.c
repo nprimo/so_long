@@ -6,16 +6,11 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/14 12:58:03 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 11:27:18 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int		*get_dim(char **map);
-int		check_map(char **map);
-char	*get_content(int fd);
-int		check_content(char *content);
 
 char	**get_map(int fd)
 {
@@ -24,15 +19,25 @@ char	**get_map(int fd)
 
 	content = get_content(fd);
 	if (!content)
-		return (0);
+		return (NULL);
 	if (!check_content(content))
-		return (0);
-	map = ft_split(content, '\n');
-	if (!map || !check_map(map))
 	{
+		free(content);
+		return (NULL);
+	}
+	map = ft_split(content, '\n');
+	if (!map)
+	{
+		free(content);
+		return (NULL);
+	}
+	if (!check_map(map))
+	{
+		free(content);
 		free_split((void **) map);
 		return (NULL);
 	}
+	free(content);
 	return (map);
 }
 

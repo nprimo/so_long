@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 12:26:27 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 12:45:18 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,32 @@ t_tile_type	**map_char_to_tile_type(char **map_char, int win_row)
 t_tile_type	**init_map(char	*fname)
 {
 	int			fd;
-	int			win_col;
-	int			win_row;
 	char		**map_char;
 	t_tile_type	**map;
 
 	fd = open(fname, O_RDONLY);
 	if (fd < 0 || fd > 10)
+	{
+		ft_printf("Error opening file!\n");
 		return (NULL);
+	}
 	map_char = get_map(fd);
 	if (!map_char)
+	{
+		ft_printf("Error reading file!\n");
 		return (NULL);
-	win_col = get_win_col(map_char);
-	win_row = get_win_row(map_char);
-	map = map_char_to_tile_type(map_char, win_row);
+	}
+	if (close(fd) == -1)
+	{
+		ft_printf("Error closing file!\n");
+		return (NULL);
+	}
+	map = map_char_to_tile_type(map_char, get_win_row(map_char));
 	if (!map)
+	{
+		ft_printf("Error changing map type to t_tile_type!\n");
 		return (free_split((void **) map_char));
+	}
 	free_split((void **) map_char);
 	return (map);
 }

@@ -6,18 +6,17 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 12:28:18 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 12:44:55 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
+# include "../ft_printf/libftprintf.h"
 
 # include <mlx.h>
 # include <fcntl.h>
-# include <stdio.h>
 
 # define U 16 
 # define BUFF_SIZE 4096 

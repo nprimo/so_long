@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/14 11:10:31 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 11:19:16 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,23 @@ typedef enum e_tile_type {
 }t_tile_type;
 
 typedef struct s_tiles {
-	void	*img[5];
+	void	*img[4];
 }	t_tiles;
 
-typedef struct s_vars {
+typedef struct s_player {
+	int	row;
+	int	col;
+	int	n_collectibles;
+	int	moves;
+}	t_player;
+
+typedef struct s_game {
 	void		*mlx;
 	void		*win;
 	t_tile_type	**map;
 	int			*dim;
+	t_player	player;
 	t_tiles		tiles;
-}	t_vars;
-
-typedef struct s_data {
-	void	*img;
-	char	*adr;
-	int		bpp;
-	int		ll;
-	int		end;
-}	t_data;
-
-void	*free_split(void **av);
-int		init_session(char *fname, t_vars *v);
-void	free_vars(t_vars *v);
+}	t_game;
 
 #endif

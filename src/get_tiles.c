@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 16:34:36 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 13:14:17 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:58:03 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_tiles	get_tiles(t_game *game)
 		= mlx_xpm_file_to_image(game->mlx, REL_PATH_COLLECTIBLE, &w, &h);
 	tiles.img[T_EXIT]
 		= mlx_xpm_file_to_image(game->mlx, REL_PATH_EXIT, &w, &h);
+	tiles.img[T_BACKGROUND]
+		= mlx_xpm_file_to_image(game->mlx, REL_PATH_BACKGROUND, &w, &h);
 	return (tiles);
 }
 

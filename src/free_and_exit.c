@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 11:56:03 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 12:13:01 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 12:20:38 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	free_and_exit(t_game *game)
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
-		free(mlx);
+		free(game->mlx);
 	exit(1);
 }

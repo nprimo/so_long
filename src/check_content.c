@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:17:52 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 13:26:58 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 16:32:20 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,20 @@ int	is_rect(char *content);
 int	check_content(char *content)
 {
 	char	*tmp;
+	int		flag;
 
-	tmp = content;
-	content = ft_strtrim(content, "\n");
+	flag = 1;
+	tmp = ft_strtrim(content, "\n");
+	if (!tmp)
+		return (0);
+	if (!tmp
+		|| !is_all_valid(tmp, VALID_CHAR_SET)
+		|| !has_all_char(tmp)
+		|| !is_continuos(tmp)
+		|| !is_rect(tmp))
+		flag = 0;
 	free(tmp);
-	if (!content)
-		return (0);
-	if (!is_all_valid(content, VALID_CHAR_SET))
-		return (0);
-	if (!has_all_char(content))
-		return (0);
-	if (!is_continuos(content))
-		return (0);
-	if (!is_rect(content))
-		return (0);
-	return (1);
+	return (flag);
 }
 
 /*

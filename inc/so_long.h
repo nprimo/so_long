@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 15:42:06 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 16:46:50 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ typedef struct s_game {
 	void		*mlx;
 	void		*win;
 	t_tile_type	**map;
-	int			win_dim[2];
 	t_player	player;
 	t_tiles		tiles;
 }	t_game;

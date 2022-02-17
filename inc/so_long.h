@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 19:22:51 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 19:27:29 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ int			check_map(char **map);
 char		*get_content(int fd);
 int			check_content(char *content);
 void		*free_split(void **av);
-void		render_map(t_game game);
+int			render_map(t_game game);
 
 #endif

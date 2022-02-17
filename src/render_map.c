@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:38:32 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 19:21:56 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 19:27:45 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	place_background(t_game game);
 
-void	render_map(t_game game)
+int	render_map(t_game game)
 {
 	int	row;
 	int	col;
@@ -37,6 +37,7 @@ void	render_map(t_game game)
 		}
 		row++;
 	}
+	return (0);
 }
 
 void	place_background(t_game game)

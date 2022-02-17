@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 18:08:16 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:45:45 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_tile_type	char_to_tile_type(char c)
 		return (T_PLAYER);
 	if (c == EXIT)
 		return (T_EXIT);
-	return (0);
+	return (-1);
 }
 
 t_tile_type	*translate_row(char	*map_char_row)

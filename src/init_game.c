@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_session.c                                     :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 17:40:34 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 18:16:04 by nprimo           ###   ########.fr       */
+/*   Created: 2022/02/17 18:32:34 by nprimo            #+#    #+#             */
+/*   Updated: 2022/02/17 18:32:43 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_player	init_player(t_tile_type **map);
 
-int	init_session(char *fname, t_game *game)
+int	init_game(char *fname, t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)

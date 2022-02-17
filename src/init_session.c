@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 17:40:34 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 18:01:28 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:16:04 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	init_session(char *fname, t_game *game)
 		return (free_and_exit(game));
 	}
 	game->player = init_player(game->map);
+	game->tiles = get_tiles(game);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 18:01:01 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:12:36 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 # define U 16 
 # define BUFF_SIZE 4096 
+
+# define DESTROY_EVENT 17
+# define KEYPRESS_EVENT 2
 
 # define VALID_CHAR_SET	"01CPE"
 

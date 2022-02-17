@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 11:27:18 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 12:26:27 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,16 @@ t_tile_type	*translate_row(char	*map_char_row)
 	return (map_row);
 }
 
-t_tile_type	**map_char_to_tile_type(char **map_char, int *dim)
+t_tile_type	**map_char_to_tile_type(char **map_char, int win_row)
 {
 	t_tile_type	**map;
 	int			row;
 
-	map = malloc(sizeof(*map) * (dim[0]));
+	map = malloc(sizeof(*map) * (win_row));
 	if (!map)
 		return (NULL);
 	row = 0;
-	while (row < dim[0])
+	while (row < win_row)
 	{
 		map[row] = translate_row(map_char[row]);
 		if (!map[row])
@@ -92,9 +92,11 @@ t_tile_type	**map_char_to_tile_type(char **map_char, int *dim)
 	return (map);
 }
 
-t_tile_type	**init_map(char	*fname, int **dim)
+t_tile_type	**init_map(char	*fname)
 {
 	int			fd;
+	int			win_col;
+	int			win_row;
 	char		**map_char;
 	t_tile_type	**map;
 
@@ -104,10 +106,9 @@ t_tile_type	**init_map(char	*fname, int **dim)
 	map_char = get_map(fd);
 	if (!map_char)
 		return (NULL);
-	*dim = get_dim(map_char);
-	if (!(*dim))
-		return (free_split((void **) map_char));
-	map = map_char_to_tile_type(map_char, *dim);
+	win_col = get_win_col(map_char);
+	win_row = get_win_row(map_char);
+	map = map_char_to_tile_type(map_char, win_row);
 	if (!map)
 		return (free_split((void **) map_char));
 	free_split((void **) map_char);

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 13:14:34 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 15:42:06 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_game {
 	t_tiles		tiles;
 }	t_game;
 
-void		pre_setup(t_game *game);
+t_game		pre_setup(void);
 int			free_and_exit(t_game *game);
 int			get_win_row(char **map);
 int			get_win_col(char **map);

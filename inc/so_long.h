@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 11:19:16 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 11:23:30 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,11 @@ typedef struct s_game {
 	t_player	player;
 	t_tiles		tiles;
 }	t_game;
+
+int		*get_dim(char **map);
+int		check_map(char **map);
+char	*get_content(int fd);
+int		check_content(char *content);
+void	*free_split(void **av);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 13:02:53 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 13:14:34 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_count_char {
 }	t_count_char;	
 
 typedef enum e_tile_type {
-	T_WALL = 1,
+	T_WALL = 0,
 	T_COLLECTIBLE,
 	T_PLAYER,
 	T_EXIT,

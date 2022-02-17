@@ -6,26 +6,26 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 16:34:36 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/11 16:52:54 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 13:14:17 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_tiles	get_tiles(t_vars *v)
+t_tiles	get_tiles(t_game *game)
 {
 	int		w;
 	int		h;
 	t_tiles	tiles;
 
 	tiles.img[T_WALL]
-		= mlx_xpm_file_to_image(v->mlx, REL_PATH_WALL, &w, &h);
+		= mlx_xpm_file_to_image(game->mlx, REL_PATH_WALL, &w, &h);
 	tiles.img[T_PLAYER]
-		= mlx_xpm_file_to_image(v->mlx, REL_PATH_PLAYER, &w, &h);
+		= mlx_xpm_file_to_image(game->mlx, REL_PATH_PLAYER, &w, &h);
 	tiles.img[T_COLLECTIBLE]
-		= mlx_xpm_file_to_image(v->mlx, REL_PATH_COLLECTIBLE, &w, &h);
+		= mlx_xpm_file_to_image(game->mlx, REL_PATH_COLLECTIBLE, &w, &h);
 	tiles.img[T_EXIT]
-		= mlx_xpm_file_to_image(v->mlx, REL_PATH_EXIT, &w, &h);
+		= mlx_xpm_file_to_image(game->mlx, REL_PATH_EXIT, &w, &h);
 	return (tiles);
 }
 

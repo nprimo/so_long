@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 18:12:36 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 18:17:12 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int			free_and_exit(t_game *game);
 int			get_win_row(void **map);
 int			get_win_col(t_tile_type **map);
 t_tile_type	**init_map(char	*fname);
+t_tiles		get_tiles(t_game *game);
 int			init_session(char *fname, t_game *game);
 int			check_map(char **map);
 char		*get_content(int fd);

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 12:45:18 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/17 13:11:06 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ char	**get_map(int fd)
 		return (NULL);
 	if (!check_content(content))
 	{
-		free(content);
+		// free(content);
 		return (NULL);
 	}
 	map = ft_split(content, '\n');
 	if (!map)
 	{
-		free(content);
+		// free(content);
 		return (NULL);
 	}
 	if (!check_map(map))
 	{
-		free(content);
+		// free(content);
 		free_split((void **) map);
 		return (NULL);
 	}
-	free(content);
+	// free(content);
 	return (map);
 }
 
@@ -61,7 +61,7 @@ t_tile_type	*translate_row(char	*map_char_row)
 	size_t		col;
 
 	row_len = ft_strlen(map_char_row);
-	map_row = malloc(sizeof(*map_row) * row_len);
+	map_row = malloc(sizeof(*map_row) * (row_len + 1));
 	if (!map_row)
 		return (NULL);
 	col = 0;
@@ -70,6 +70,7 @@ t_tile_type	*translate_row(char	*map_char_row)
 		map_row[col] = char_to_tile_type(map_char_row[col]);
 		col++;
 	}
+	map_row[col] = END_ROW;
 	return (map_row);
 }
 
@@ -78,7 +79,7 @@ t_tile_type	**map_char_to_tile_type(char **map_char, int win_row)
 	t_tile_type	**map;
 	int			row;
 
-	map = malloc(sizeof(*map) * (win_row));
+	map = malloc(sizeof(*map) * (win_row + 1));
 	if (!map)
 		return (NULL);
 	row = 0;
@@ -89,6 +90,7 @@ t_tile_type	**map_char_to_tile_type(char **map_char, int win_row)
 			return (NULL);
 		row++;
 	}
+	map[row]= NULL;
 	return (map);
 }
 
@@ -100,27 +102,15 @@ t_tile_type	**init_map(char	*fname)
 
 	fd = open(fname, O_RDONLY);
 	if (fd < 0 || fd > 10)
-	{
-		ft_printf("Error opening file!\n");
 		return (NULL);
-	}
 	map_char = get_map(fd);
 	if (!map_char)
-	{
-		ft_printf("Error reading file!\n");
 		return (NULL);
-	}
 	if (close(fd) == -1)
-	{
-		ft_printf("Error closing file!\n");
 		return (NULL);
-	}
 	map = map_char_to_tile_type(map_char, get_win_row(map_char));
 	if (!map)
-	{
-		ft_printf("Error changing map type to t_tile_type!\n");
 		return (free_split((void **) map_char));
-	}
 	free_split((void **) map_char);
 	return (map);
 }

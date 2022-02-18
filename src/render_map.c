@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:38:32 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 19:27:45 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/18 18:03:40 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 static void	place_background(t_game game);
 
-int	render_map(t_game game)
+int	render_map(t_game *game)
 {
 	int	row;
 	int	col;
 
-	place_background(game);
+	place_background(*game);
 	row = 0;
-	while (game.map[row])
+	while (game->map[row])
 	{
 		col = 0;
-		while (game.map[row][col] != END_ROW)
+		while (game->map[row][col] != END_ROW)
 		{
-			if (game.map[row][col] == T_WALL
-					|| game.map[row][col] == T_PLAYER
-					|| game.map[row][col] == T_COLLECTIBLE
-					|| game.map[row][col] == T_EXIT)
-				mlx_put_image_to_window(game.mlx, game.win,
-					game.tiles.img[game.map[row][col]],
+			if (game->map[row][col] == T_WALL
+					|| game->map[row][col] == T_PLAYER
+					|| game->map[row][col] == T_COLLECTIBLE
+					|| game->map[row][col] == T_EXIT)
+				mlx_put_image_to_window(game->mlx, game->win,
+					game->tiles.img[game->map[row][col]],
 					col * U, row * U);
 			col++;
 		}

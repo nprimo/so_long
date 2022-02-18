@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:32:34 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 18:32:43 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/18 15:13:47 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ static t_player	init_player(t_tile_type **map)
 		{
 			if (map[row][col] == T_PLAYER)
 			{
-				player.row = row;
-				player.col = col;
+				player.pos.row = row;
+				player.pos.col = col;
 			}
 			if (map[row][col] == T_COLLECTIBLE)
 				player.n_collectibles++;

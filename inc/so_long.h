@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/18 10:23:14 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/18 15:13:07 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,15 @@ typedef struct s_tiles {
 	void	*img[5];
 }	t_tiles;
 
-typedef struct s_player {
+typedef struct s_pos {
 	int	row;
 	int	col;
-	int	n_collectibles;
-	int	moves;
+}	t_pos;
+
+typedef struct s_player {
+	t_pos	pos;
+	int		n_collectibles;
+	int		moves;
 }	t_player;
 
 typedef struct s_game {

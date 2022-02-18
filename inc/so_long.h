@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/17 19:27:29 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/18 10:23:14 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 # define DESTROY_EVENT 17
 # define KEYPRESS_EVENT 2
 # define KEYPRESS_MASK 1
+
+# define ESC_KEYCODE 53
+# define UP_KEYCODE 13
+# define DOWN_KEYCODE 1
+# define LEFT_KEYCODE 0
+# define RIGHT_KEYCODE 2
 
 # define VALID_CHAR_SET	"01CPE"
 
@@ -87,5 +93,6 @@ char		*get_content(int fd);
 int			check_content(char *content);
 void		*free_split(void **av);
 int			render_map(t_game game);
+int			keypress_handler(int keycode, t_game *game);
 
 #endif

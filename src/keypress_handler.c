@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   keypress_handler.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 17:38:58 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/18 10:24:06 by nprimo           ###   ########.fr       */
+/*   Created: 2022/02/18 10:11:46 by nprimo            #+#    #+#             */
+/*   Updated: 2022/02/18 10:22:57 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+int	keypress_handler(int keycode, t_game *game)
 {
-	t_game	game;
-
-	game = pre_setup();
-	if (ac == 2)
-	{
-		init_game(av[1], &game);
-		render_map(game);
-		mlx_hook(game.win, DESTROY_EVENT, 0, free_and_exit, &game);
-		mlx_hook(game.win,
-			KEYPRESS_EVENT, KEYPRESS_MASK, keypress_handler, &game);
-		mlx_loop(game.mlx);
-	}
-	ft_printf("Launch so_long with 1 argument!\n");
-	return (0);
+	if (keycode == ESC_KEYCODE)
+		return (free_and_exit(game));
+	if (keycode == UP_KEYCODE
+		|| keycode == DOWN_KEYCODE
+		|| keycode == LEFT_KEYCODE
+		|| keycode == RIGHT_KEYCODE)
+		ft_printf("Update map and render it again!\n");
+	return (game->player.row);
 }

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/18 15:13:07 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/18 18:01:25 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ int			check_map(char **map);
 char		*get_content(int fd);
 int			check_content(char *content);
 void		*free_split(void **av);
-int			render_map(t_game game);
+int			render_map(t_game *game);
 int			keypress_handler(int keycode, t_game *game);
+void		update_game(int keycode, t_game *game);
 
 #endif

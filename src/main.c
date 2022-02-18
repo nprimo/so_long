@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 17:38:58 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/18 10:24:06 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/18 18:12:56 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		init_game(av[1], &game);
-		render_map(game);
 		mlx_hook(game.win, DESTROY_EVENT, 0, free_and_exit, &game);
 		mlx_hook(game.win,
 			KEYPRESS_EVENT, KEYPRESS_MASK, keypress_handler, &game);
+		mlx_loop_hook(game.mlx, render_map, &game);
 		mlx_loop(game.mlx);
 	}
 	ft_printf("Launch so_long with 1 argument!\n");

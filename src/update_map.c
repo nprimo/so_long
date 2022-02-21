@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:23:21 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/21 11:25:35 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/21 12:11:21 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	update_game(int keycode, t_game *game)
 			return (end_game(game));
 		update_player(new_pos, game);
 		update_map(curr_pos, new_pos, game->map);
-		ft_printf("Moves: %d\n", game->player.moves);
+		mlx_string_put(game->mlx, game->win,
+				0, 0, 0x00000000, ft_itoa(game->player.moves));
 	}
 }
 

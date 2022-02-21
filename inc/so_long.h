@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/18 18:01:25 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/21 11:26:41 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct s_game {
 	t_tile_type	**map;
 	t_player	player;
 	t_tiles		tiles;
+	int			status;
 }	t_game;
 
 t_game		pre_setup(void);
@@ -99,5 +100,7 @@ void		*free_split(void **av);
 int			render_map(t_game *game);
 int			keypress_handler(int keycode, t_game *game);
 void		update_game(int keycode, t_game *game);
+void		end_game(t_game *game);
+int			is_end_game(t_pos pos, t_game *game);
 
 #endif

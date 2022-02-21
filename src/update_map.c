@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:23:21 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/18 18:14:24 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/21 11:25:35 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	update_game(int keycode, t_game *game)
 	new_pos = get_new_pos(keycode, curr_pos);
 	if (is_valid_pos(new_pos, game) == 1)
 	{
+		if (is_end_game(new_pos, game))
+			return (end_game(game));
 		update_player(new_pos, game);
 		update_map(curr_pos, new_pos, game->map);
 		ft_printf("Moves: %d\n", game->player.moves);

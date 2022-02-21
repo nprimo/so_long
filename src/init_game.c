@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:32:34 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/18 15:13:47 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/21 11:18:55 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	init_game(char *fname, t_game *game)
 	}
 	game->player = init_player(game->map);
 	game->tiles = get_tiles(game);
+	game->status = 1;
 	return (1);
 }
 

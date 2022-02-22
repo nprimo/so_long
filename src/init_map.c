@@ -6,13 +6,39 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:35:13 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/18 17:15:55 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/22 18:39:32 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 #include <stdio.h>
+
+char		**get_map(int fd);
+t_tile_type	char_to_tile_type(char c);
+t_tile_type	*translate_row(char	*map_char_row);
+t_tile_type	**map_char_to_tile_type(char **map_char, int win_row);
+
+t_tile_type	**init_map(char	*fname)
+{
+	int			fd;
+	char		**map_char;
+	t_tile_type	**map;
+
+	fd = open(fname, O_RDONLY);
+	if (fd < 0 || fd > 10)
+		return (NULL);
+	map_char = get_map(fd);
+	if (!map_char)
+		return (NULL);
+	if (close(fd) == -1)
+		return (NULL);
+	map = map_char_to_tile_type(map_char, get_win_row((void **) map_char));
+	if (!map)
+		return (free_split((void **) map_char));
+	free_split((void **) map_char);
+	return (map);
+}
 
 char	**get_map(int fd)
 {
@@ -87,23 +113,3 @@ t_tile_type	**map_char_to_tile_type(char **map_char, int win_row)
 	return (map);
 }
 
-t_tile_type	**init_map(char	*fname)
-{
-	int			fd;
-	char		**map_char;
-	t_tile_type	**map;
-
-	fd = open(fname, O_RDONLY);
-	if (fd < 0 || fd > 10)
-		return (NULL);
-	map_char = get_map(fd);
-	if (!map_char)
-		return (NULL);
-	if (close(fd) == -1)
-		return (NULL);
-	map = map_char_to_tile_type(map_char, get_win_row((void **) map_char));
-	if (!map)
-		return (free_split((void **) map_char));
-	free_split((void **) map_char);
-	return (map);
-}

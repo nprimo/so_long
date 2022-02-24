@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/21 11:26:41 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 10:53:09 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@
 
 # define VALID_CHAR_SET	"01CPE"
 
-# define REL_PATH_WALL "img/Bush-4.xpm"
+# define REL_PATH_WALL "img/rock.xpm"
 # define REL_PATH_COLLECTIBLE "img/Apple.xpm"
-# define REL_PATH_PLAYER "img/Beer.xpm"
+# define REL_PATH_PLAYER "img/player/Pingu0_1_.xpm"
 # define REL_PATH_EXIT "img/Chest.xpm"
-# define REL_PATH_BACKGROUND "img/grass.xpm"
+# define REL_PATH_BACKGROUND "img/snow.xpm"
 
 enum e_char
 {
@@ -102,5 +102,6 @@ int			keypress_handler(int keycode, t_game *game);
 void		update_game(int keycode, t_game *game);
 void		end_game(t_game *game);
 int			is_end_game(t_pos pos, t_game *game);
+void		display_moves(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:38:32 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/21 12:11:23 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 10:45:17 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ int	render_map(t_game *game)
 		}
 		row++;
 	}
-	mlx_string_put(game->mlx, game->win,
-			0, 0, 0x00000000, ft_itoa(game->player.moves));
+	display_moves(game);
 	return (0);
 }
 

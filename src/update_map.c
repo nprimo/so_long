@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:23:21 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 10:43:17 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 11:44:23 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	update_game(int keycode, t_game *game)
 			return (end_game(game));
 		update_player(new_pos, game);
 		update_map(curr_pos, new_pos, game->map);
-		ft_printf("Moves: %d\n", game->player.moves);
+		display_moves(game);
 	}
 }
 
@@ -73,6 +73,12 @@ void	update_player(t_pos new_pos, t_game *game)
 {
 	if (game->map[new_pos.row][new_pos.col] == T_COLLECTIBLE)
 		game->player.n_collectibles--;
+	mlx_put_image_to_window(game->mlx, game->win, game->tiles.img[T_BACKGROUND],
+		game->player.pos.col * U, game->player.pos.row * U);
+	mlx_put_image_to_window(game->mlx, game->win, game->tiles.img[T_BACKGROUND],
+		new_pos.col * U, new_pos.row * U);
+	mlx_put_image_to_window(game->mlx, game->win, game->tiles.img[T_PLAYER],
+		new_pos.col * U, new_pos.row * U);
 	game->player.moves++;
 	game->player.pos = new_pos;
 }

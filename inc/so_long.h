@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 12:17:43 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 12:34:28 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@
 # define REL_PATH_PLAYER "img/player/Pingu0_1_.xpm"
 # define REL_PATH_EXIT "img/Chest.xpm"
 # define REL_PATH_BACKGROUND "img/snow.xpm"
-# define REL_PATH_ENEMY_0
-# define REL_PATH_ENEMY_1
-# define REL_PATH_ENEMY_2
-# define REL_PATH_ENEMY_3
+# define REL_PATH_ENEMY_0 "img/enemy/Fogo_1_1_.xpm"
+# define REL_PATH_ENEMY_1 "img/enemy/Fogo_2_1_.xpm"
+# define REL_PATH_ENEMY_2 "img/enemy/Fogo_3_1_.xpm"
+# define REL_PATH_ENEMY_3 "img/enemy/Fogo_4_1_.xpm"
 
 
 enum e_char
@@ -109,6 +109,7 @@ char		*get_content(int fd);
 int			check_content(char *content);
 void		*free_split(void **av);
 int			render_map(t_game *game);
+int			render_enemy(t_game *game);
 int			keypress_handler(int keycode, t_game *game);
 void		update_game(int keycode, t_game *game);
 void		end_game(t_game *game);

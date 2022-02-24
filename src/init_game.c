@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 18:32:34 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 12:20:59 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 12:26:19 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_enemy	init_enemy(t_game *game)
 	int		w;
 	int		h;
 
-	enemy.pos.col = game->player.ppos.col + 3;
+	enemy.pos.col = game->player.pos.col + 3;
 	if (enemy.pos.col > get_win_col(game->map))
 		enemy.pos.col = 0;
 	enemy.pos.row = 0;

@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 11:17:34 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 12:17:43 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@
 # define REL_PATH_PLAYER "img/player/Pingu0_1_.xpm"
 # define REL_PATH_EXIT "img/Chest.xpm"
 # define REL_PATH_BACKGROUND "img/snow.xpm"
+# define REL_PATH_ENEMY_0
+# define REL_PATH_ENEMY_1
+# define REL_PATH_ENEMY_2
+# define REL_PATH_ENEMY_3
+
 
 enum e_char
 {
@@ -77,11 +82,17 @@ typedef struct s_player {
 	int		moves;
 }	t_player;
 
+typedef struct s_enemy {
+	t_pos 	pos;
+	void	*img[4];
+}	t_enemy;
+
 typedef struct s_game {
 	void		*mlx;
 	void		*win;
 	t_tile_type	**map;
 	t_player	player;
+	t_enemy		enemy;
 	t_tiles		tiles;
 	int			status;
 }	t_game;

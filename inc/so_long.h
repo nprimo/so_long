@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 10:53:09 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 11:17:34 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define VALID_CHAR_SET	"01CPE"
 
 # define REL_PATH_WALL "img/rock.xpm"
-# define REL_PATH_COLLECTIBLE "img/Apple.xpm"
+# define REL_PATH_COLLECTIBLE "img/Beer.xpm"
 # define REL_PATH_PLAYER "img/player/Pingu0_1_.xpm"
 # define REL_PATH_EXIT "img/Chest.xpm"
 # define REL_PATH_BACKGROUND "img/snow.xpm"

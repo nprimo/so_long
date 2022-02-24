@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 17:38:58 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 12:33:15 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 17:15:49 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ void	run_game(t_game *game, char *fname)
 	mlx_hook(game->win, DESTROY_EVENT, 0, free_and_exit, game);
 	mlx_hook(game->win,
 		KEYPRESS_EVENT, KEYPRESS_MASK, keypress_handler, game);
-	mlx_loop_hook(game->mlx, render_enemy, game);
 	mlx_loop(game->mlx);
 }

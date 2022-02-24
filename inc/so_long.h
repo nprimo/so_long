@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 13:05:17 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 13:15:56 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,6 @@ void		update_game(int keycode, t_game *game);
 void		end_game(t_game *game);
 int			is_end_game(t_pos pos, t_game *game);
 void		display_moves(t_game *game);
+void		clear_tile(t_pos pos, t_game *game);
 
 #endif

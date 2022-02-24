@@ -6,13 +6,12 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 12:04:44 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 13:03:35 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 13:23:45 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	clear_tile(t_pos pos, t_game *game);
 static void	update_enemy(t_game *game);
 static int	is_enemy_on_player(t_game *game);
 
@@ -34,18 +33,6 @@ int	render_enemy(t_game *game)
 	}
 	status++;
 	return (status);
-}
-
-static void	clear_tile(t_pos pos, t_game *game)
-{
-	mlx_put_image_to_window(game->mlx, game->win,
-		game->tiles.img[T_BACKGROUND],
-		pos.col * U, pos.row * U);
-	mlx_put_image_to_window(game->mlx, game->win,
-		game->tiles.img[game->map[pos.row][pos.col]],
-		pos.col * U, pos.row * U);
-	if (pos.row == 0 && pos.col < 2)
-		display_moves(game);
 }
 
 static void	update_enemy(t_game *game)

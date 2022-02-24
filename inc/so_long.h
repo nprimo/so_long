@@ -6,7 +6,7 @@
 /*   By: nprimo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 10:03:51 by nprimo            #+#    #+#             */
-/*   Updated: 2022/02/24 12:34:28 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/02/24 13:05:17 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@
 # define REL_PATH_ENEMY_1 "img/enemy/Fogo_2_1_.xpm"
 # define REL_PATH_ENEMY_2 "img/enemy/Fogo_3_1_.xpm"
 # define REL_PATH_ENEMY_3 "img/enemy/Fogo_4_1_.xpm"
-
 
 enum e_char
 {
@@ -83,7 +82,7 @@ typedef struct s_player {
 }	t_player;
 
 typedef struct s_enemy {
-	t_pos 	pos;
+	t_pos	pos;
 	void	*img[4];
 }	t_enemy;
 
